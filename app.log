@@ -1,0 +1,7 @@
+{"L":"INFO","T":"2024-12-09T15:53:52.650+0800","M":"Logger initialized successfully"}
+{"L":"INFO","T":"2024-12-09T16:00:15.695+0800","M":"Logger initialized successfully"}
+{"L":"INFO","T":"2024-12-09T16:05:34.459+0800","M":"Logger initialized successfully"}
+{"L":"INFO","T":"2024-12-09T16:18:59.617+0800","M":"Logger initialized successfully"}
+{"L":"ERROR","T":"2024-12-09T16:20:31.599+0800","M":"failed to login user","error":"user not found"}
+{"L":"ERROR","T":"2024-12-09T16:20:36.384+0800","M":"failed to login user","error":"user not found"}
+{"L":"ERROR","T":"2024-12-09T16:20:38.800+0800","M":"failed to login user","error":"user not found"}
