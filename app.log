@@ -5,3 +5,12 @@
 {"L":"ERROR","T":"2024-12-09T16:20:31.599+0800","M":"failed to login user","error":"user not found"}
 {"L":"ERROR","T":"2024-12-09T16:20:36.384+0800","M":"failed to login user","error":"user not found"}
 {"L":"ERROR","T":"2024-12-09T16:20:38.800+0800","M":"failed to login user","error":"user not found"}
+{"L":"INFO","T":"2024-12-10T10:41:11.906+0800","M":"Logger initialized successfully"}
+{"L":"INFO","T":"2024-12-10T10:44:22.181+0800","M":"Found user by email","email":"john@example.com","user":{"id":1,"name":"John Doe","email":"john@example.com"}}
+{"L":"INFO","T":"2024-12-10T10:44:22.299+0800","M":"user logged in successfully","email":"john@example.com"}
+{"L":"INFO","T":"2024-12-10T10:48:53.620+0800","M":"Logger initialized successfully"}
+{"L":"INFO","T":"2024-12-10T10:54:17.927+0800","M":"Logger initialized successfully"}
+{"L":"ERROR","T":"2024-12-10T10:54:42.528+0800","M":"Failed to fetch user data from cache","error":"dial tcp [::1]:6379: connectex: No connection could be made because the target machine actively refused it."}
+{"L":"INFO","T":"2024-12-10T10:57:46.330+0800","M":"Logger initialized successfully"}
+{"L":"INFO","T":"2024-12-10T10:57:49.282+0800","M":"Found user by email","email":"john@example.com","user":{"id":1,"name":"John Doe","email":"john@example.com"}}
+{"L":"INFO","T":"2024-12-10T10:57:49.299+0800","M":"user logged in successfully","email":"john@example.com"}

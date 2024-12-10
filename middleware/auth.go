@@ -2,6 +2,7 @@ package middleware
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 	"strings"
 
@@ -56,24 +57,31 @@ func (a *AuthMiddleware) Authenticate() gin.HandlerFunc {
 			return
 		}
 
+		log.Printf("token: %v", token)
 		// Extract claims from the token
 		claims, ok := token.Claims.(jwt.MapClaims)
 		if !ok || !token.Valid {
+			a.logger.Error("Invalid token claims", zap.Any("claims", token.Claims))
 			a.respondWithError(c, http.StatusUnauthorized, "Invalid token claims")
 			return
 		}
 
-		// Get user ID from claims
+		// Safely extract userID
 		userID, ok := claims["sub"].(string)
 		if !ok {
-			a.respondWithError(c, http.StatusUnauthorized, "Invalid token claims")
-			return
+			subFloat, ok := claims["sub"].(float64)
+			if !ok {
+				a.respondWithError(c, http.StatusUnauthorized, "Invalid sub claim")
+				return
+			}
+			userID = fmt.Sprintf("%.0f", subFloat) // Convert to string
 		}
 
-		// Fetch user data from Redis
+		// Log and fetch from Redis
+		log.Printf("UserID: %s", userID)
 		userData, err := a.cache.Get(userID)
 		if err != nil {
-			a.logger.Error("Failed to get user data from Redis", zap.Error(err))
+			a.logger.Error("Failed to fetch user data from cache", zap.Error(err))
 			a.respondWithError(c, http.StatusUnauthorized, "Unauthorized")
 			return
 		}
